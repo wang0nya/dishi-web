@@ -1,7 +1,8 @@
 export class Recipe {
   $key: string;
   name: string;
-  position: string;
-  office: string;
-  salary: number;
+  description: string;
+  ingredients: string;
+  method: string;
+  serves: number;
 }

@@ -1,3 +1,36 @@
-<p>
-  recipe works!
-</p>
+<form #recipeForm="ngForm" (ngSubmit)="onSubmit(recipeForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="recipeService.selectedRecipe.$key">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="recipeService.selectedRecipe.name" placeholder="Full Name" required>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" name="description" #position="ngModel" [(ngModel)]="recipeService.selectedRecipe.description" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label>Ingredients</label>
+    <textarea class="form-control" name="ingredients" #office="ngModel" [(ngModel)]="recipeService.selectedRecipe.ingredients" placeholder="Ingredients"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Method</label>
+    <textarea class="form-control" name="method" #office="ngModel" [(ngModel)]="recipeService.selectedRecipe.method" placeholder="Method"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Serves</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-people"></i>
+      </div>
+      <input class="form-control" name="serves" #salary="ngModel" [(ngModel)]="recipeService.selectedRecipe.serves" placeholder="Serves">
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit">
+      <i class="fa fa-floppy-o"></i>
+      Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(recipeForm)">
+      <i class="fa fa-repeat"></i>
+      Reset</button>
+  </div>
+</form>

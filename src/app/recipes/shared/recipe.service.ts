@@ -7,7 +7,9 @@ import { Recipe} from './recipe.model';
 export class RecipeService {
   recipeList: AngularFireList<any>;
   selectedRecipe: Recipe = new Recipe();
-  constructor(private firebase: AngularFireDatabase ) { }
+  constructor(public firebase: AngularFireDatabase ) {
+    this.recipeList = firebase.list('/recipes');
+  }
 
   getData() {
     this.recipeList = this.firebase.list('recipes');
@@ -17,9 +19,10 @@ export class RecipeService {
   insertRecipe(recipe: Recipe) {
     this.recipeList.push({
       name: recipe.name,
-      position: recipe.position,
-      office: recipe.office,
-      salary: recipe.salary
+      description: recipe.description,
+      ingredients: recipe.ingredients,
+      method: recipe.method,
+      serves: recipe.serves
     });
   }
 
@@ -27,9 +30,10 @@ export class RecipeService {
     this.recipeList.update(recipe.$key,
       {
         name: recipe.name,
-        position: recipe.position,
-        office: recipe.office,
-        salary: recipe.salary
+        description: recipe.description,
+        ingredients: recipe.ingredients,
+        method: recipe.method,
+        serves: recipe.serves
       });
   }
 

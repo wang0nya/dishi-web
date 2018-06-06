@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService} from '../recipes/shared/recipe.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe',
@@ -8,9 +9,32 @@ import { RecipeService} from '../recipes/shared/recipe.service';
 })
 export class RecipeComponent implements OnInit {
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(public recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.resetForm();
   }
 
+  onSubmit(recipeForm: NgForm) {
+    if (recipeForm.value.$key == null) {
+      this.recipeService.insertRecipe(recipeForm.value);
+    } else {
+      this.recipeService.updateRecipe(recipeForm.value);
+    }
+    this.resetForm(recipeForm);
+  }
+
+  resetForm(recipeForm?: NgForm) {
+    if (recipeForm != null) {
+      recipeForm.reset();
+    }
+    this.recipeService.selectedRecipe = {
+      $key: null,
+      name: '',
+      description: '',
+      ingredients: '',
+      method: '',
+      serves: 0
+    };
+  }
 }
