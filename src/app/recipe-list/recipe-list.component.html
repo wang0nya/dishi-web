@@ -1,3 +1,15 @@
-<p>
-  recipe-list works!
-</p>
+<h6 class="text-center">Recipes</h6><br/>
+<table class="table table-sm table-hover">
+  <tr *ngFor="let recipe of recipeList">
+    <td>{{recipe.name}}</td>
+    <td>{{recipe.description}}</td>
+    <td>
+      <a class="btn" (click)="onEdit(recipe)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn" (click)="onDelete(recipe.$key)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>
