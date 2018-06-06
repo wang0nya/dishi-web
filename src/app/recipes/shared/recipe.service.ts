@@ -19,6 +19,7 @@ export class RecipeService {
   insertRecipe(recipe: Recipe) {
     this.recipeList.push({
       name: recipe.name,
+      imgurl: recipe.imgurl,
       description: recipe.description,
       ingredients: recipe.ingredients,
       method: recipe.method,
@@ -30,6 +31,7 @@ export class RecipeService {
     this.recipeList.update(recipe.$key,
       {
         name: recipe.name,
+        imgurl: recipe.imgurl,
         description: recipe.description,
         ingredients: recipe.ingredients,
         method: recipe.method,

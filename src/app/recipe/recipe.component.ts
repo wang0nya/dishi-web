@@ -31,6 +31,7 @@ export class RecipeComponent implements OnInit {
     this.recipeService.selectedRecipe = {
       $key: null,
       name: '',
+      imgurl: '',
       description: '',
       ingredients: '',
       method: '',

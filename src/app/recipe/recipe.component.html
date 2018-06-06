@@ -5,8 +5,12 @@
     <input class="form-control" name="name" #name="ngModel" [(ngModel)]="recipeService.selectedRecipe.name" placeholder="Full Name" required>
   </div>
   <div class="form-group">
-    <label>Description</label>
-    <input class="form-control" name="description" #position="ngModel" [(ngModel)]="recipeService.selectedRecipe.description" placeholder="Description">
+    <label>Image Url</label>
+    <input class="form-control" name="imgurl" #position="ngModel" [(ngModel)]="recipeService.selectedRecipe.imgurl" placeholder="Image Url">
+  </div>
+  <div>
+  <label>Description</label>
+  <input class="form-control" name="description" #position="ngModel" [(ngModel)]="recipeService.selectedRecipe.description" placeholder="Description">
   </div>
   <div class="form-group">
     <label>Ingredients</label>
